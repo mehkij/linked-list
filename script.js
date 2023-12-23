@@ -52,3 +52,7 @@ class Node {
     this.nextNode = nextNode;
   };
 };
+
+const people = new LinkedList();
+people.append("John");
+console.log(people);
