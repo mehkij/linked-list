@@ -13,9 +13,13 @@ class LinkedList {
 
   // Adds a new node containing a value to the start of the list
   prepend(value) {
-    let next = this.head;
-    this.head = new Node(value);
-    this.head.nextNode = next;
+    if (this.head.value == -1) {
+      this.head.value = value;
+    } else {
+      let next = this.head;
+      this.head = new Node(value);
+      this.head.nextNode = next;
+    }
   };
 
   // Returns the total number of nodes in the list
@@ -66,7 +70,3 @@ people.prepend("Stacy");
 people.append("Nick");
 people.append("David");
 console.log(people);
-
-// Current bugs to fix:
-
-// Appending after a prepend causes the first prepended node to point to a node with a value of -1, which points to the appended node
