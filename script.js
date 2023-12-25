@@ -1,5 +1,6 @@
 class LinkedList {
   constructor() {
+    // Dummy head and tail for empty list
     this.head = new Node(-1);
     this.tail = this.head;
   };
@@ -11,7 +12,15 @@ class LinkedList {
   };
 
   // Adds a new node containing a value to the start of the list
-  prepend(value) {};
+  prepend(value) {
+    if (this.head.value == -1) {
+      this.head.value = value;
+    } else {
+      let next = this.head;
+      this.head = new Node(value);
+      this.head.nextNode = next;
+    }
+  };
 
   // Returns the total number of nodes in the list
   size() {};
@@ -47,8 +56,17 @@ class LinkedList {
 };
 
 class Node {
+  // Set the initial value of the pointer equal to null
   constructor(value, nextNode = null) {
     this.value = value;
     this.nextNode = nextNode;
   };
 };
+
+const people = new LinkedList();
+people.prepend("Mark");
+// people.prepend("John");
+// people.prepend("Stacy");
+// people.append("Nick");
+// people.append("David");
+console.log(people);
