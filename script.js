@@ -23,7 +23,21 @@ class LinkedList {
   };
 
   // Returns the total number of nodes in the list
-  size() {};
+  size() {
+    let current = this.head;
+    let i = 1; // Initial value should always be 1, since we're starting the count from the head
+    
+    // If both values are dummy nodes, then there are only 2 nodes in the list (the head and the tail)
+    if (this.head.value == -1 && this.head.next == null && this.tail.value == -1) {
+      return 2;
+    } else {
+      while (current.nextNode !== null) {
+        current = current.nextNode;
+        i++
+      };
+      return i;
+    }
+  };
 
   // Returns the first node in the list
   head() {};
@@ -70,3 +84,4 @@ people.prepend("Stacy");
 people.append("Nick");
 people.append("David");
 console.log(people);
+console.log(people.size());
