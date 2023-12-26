@@ -55,7 +55,17 @@ class LinkedList {
   };
 
   // Returns the node at the given index
-  at(index) {};
+  at(index) {
+    let currentNum = 1;
+    let current = this.head;
+
+    while(currentNum <= index) {
+      current = current.nextNode;
+      currentNum++
+    };
+    
+    return current;
+  };
 
   // Removes the last element from the list
   pop() {};
@@ -97,3 +107,4 @@ console.log(people);
 console.log(people.size());
 console.log(people.head);
 console.log(people.tail);
+console.log(people.at(2));
