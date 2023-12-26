@@ -64,7 +64,22 @@ class LinkedList {
   };
 
   // Removes the last element from the list
-  pop() {};
+  pop(list) {
+    let listSize = this.size(list);
+    let previous = listSize - 1; // Gets the index of the node previous to the tail
+    let currentNum = 1;
+    let current = this.head;
+
+    // Iterates over the object until we get to the node before the tail
+    while (currentNum < previous) {
+      current = current.nextNode;
+      currentNum++
+    };
+
+    delete this.tail;
+    current.nextNode = null;
+    this.tail = current;
+  };
 
   // Returns true if the passed value is within the list, otherwise returns false
   contains(value) {};
@@ -102,3 +117,5 @@ people.append("Dude");
 console.log(people);
 console.log(people.size());
 console.log(people.at(2));
+people.pop(people);
+console.log(people);
