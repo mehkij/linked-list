@@ -124,7 +124,17 @@ class LinkedList {
   };
 
   // Represents LinkedList objects as strings. Format: (value) -> (value) -> (value) -> null
-  toString() {};
+  toString() {
+    let current = this.head;
+    let string = "";
+    while (current.nextNode !== null) {
+      string = string + `(${current.value.toString()}) -> `;
+      current = current.nextNode;
+    };
+    string = string + `(${this.tail.value}) -> `;
+    string = string + "null";
+    return string;
+  };
 
   // Extra Credit:
   
@@ -159,3 +169,4 @@ people.pop(people);
 console.log(people);
 console.log(people.contains('Mark'));
 console.log(people.find("David"));
+console.log(people.toString());
