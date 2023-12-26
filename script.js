@@ -135,14 +135,6 @@ class LinkedList {
     string = string + "null";
     return string;
   };
-
-  // Extra Credit:
-  
-  //Inserts a new node with the provided value at the given index
-  inserAt(value, index) {};
-
-  // Removes the node at the given index
-  removeAt(index) {};
 };
 
 class Node {
