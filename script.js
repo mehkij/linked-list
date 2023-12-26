@@ -95,12 +95,29 @@ class LinkedList {
         } else if (current.nextNode == null) {
           return false;
         }
-      }
-    }
+      };
+    };
   };
 
   // Returns the index of the node containing value, or null if not found
-  find(value) {};
+  find(value) {
+    let current = this.head;
+    let currentNum = 0;
+
+    if (this.head.value == value) {
+      return 0;
+    } else {
+      while (current.nextNode !== null) {
+        current = current.nextNode;
+        currentNum++;
+        if (current.value == value) {
+          return currentNum;
+        } else if (current.nextNode == null) {
+          return null;
+        }
+      };
+    };
+  };
 
   // Represents LinkedList objects as strings. Format: (value) -> (value) -> (value) -> null
   toString() {};
@@ -135,3 +152,4 @@ console.log(people.at(2));
 people.pop(people);
 console.log(people);
 console.log(people.contains('Mark'));
+console.log(people.find("David"));
