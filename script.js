@@ -82,7 +82,22 @@ class LinkedList {
   };
 
   // Returns true if the passed value is within the list, otherwise returns false
-  contains(value) {};
+  contains(value) {
+    let current = this.head;
+
+    if (this.head.value == value) {
+      return true;
+    } else {
+      while (current.nextNode !== null) {
+        current = current.nextNode;
+        if (current.value == value) {
+          return true;
+        } else if (current.nextNode == null) {
+          return false;
+        }
+      }
+    }
+  };
 
   // Returns the index of the node containing value, or null if not found
   find(value) {};
@@ -119,3 +134,4 @@ console.log(people.size());
 console.log(people.at(2));
 people.pop(people);
 console.log(people);
+console.log(people.contains('Mark'));
