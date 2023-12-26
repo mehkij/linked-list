@@ -7,8 +7,13 @@ class LinkedList {
 
   // Adds new node containing a value to the end of the list
   append(value) {
-    this.tail.nextNode = new Node(value);
-    this.tail = this.tail.nextNode;
+    if (this.head.value == -1 && this.size() == 2 && this.tail.value !== -1) {
+      this.head = new Node(value);
+      this.head.nextNode = this.tail;
+    } else {
+      this.tail.nextNode = new Node(value);
+      this.tail = this.tail.nextNode;
+    }
   };
 
   // Adds a new node containing a value to the start of the list
@@ -23,7 +28,21 @@ class LinkedList {
   };
 
   // Returns the total number of nodes in the list
-  size() {};
+  size() {
+    let current = this.head;
+    let i = 1; // Initial value should always be 1, since we're starting the count from the head
+    
+    // If both values are dummy nodes, then there are only 2 nodes in the list (the head and the tail)
+    if (this.head.value == -1 && this.head.next == null && this.tail.value == -1) {
+      return 2;
+    } else {
+      while (current.nextNode !== null) {
+        current = current.nextNode;
+        i++
+      };
+      return i;
+    }
+  };
 
   // Returns the first node in the list
   head() {};
@@ -65,8 +84,10 @@ class Node {
 
 const people = new LinkedList();
 people.prepend("Mark");
-// people.prepend("John");
-// people.prepend("Stacy");
-// people.append("Nick");
-// people.append("David");
+people.prepend("John");
+people.prepend("Stacy");
+people.append("Nick");
+people.append("David");
+people.append("Dude");
 console.log(people);
+console.log(people.size());
