@@ -45,10 +45,14 @@ class LinkedList {
   };
 
   // Returns the first node in the list
-  head() {};
+  head() {
+    return this.head;
+  };
 
   // Returns the last node in the list
-  tail() {};
+  tail() {
+    return this.tail;
+  };
 
   // Returns the node at the given index
   at(index) {};
@@ -91,3 +95,5 @@ people.append("David");
 people.append("Dude");
 console.log(people);
 console.log(people.size());
+console.log(people.head);
+console.log(people.tail);
