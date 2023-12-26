@@ -7,8 +7,13 @@ class LinkedList {
 
   // Adds new node containing a value to the end of the list
   append(value) {
-    this.tail.nextNode = new Node(value);
-    this.tail = this.tail.nextNode;
+    if (this.head.value == -1 && this.size() == 2 && this.tail.value !== -1) {
+      this.head = new Node(value);
+      this.head.nextNode = this.tail;
+    } else {
+      this.tail.nextNode = new Node(value);
+      this.tail = this.tail.nextNode;
+    }
   };
 
   // Adds a new node containing a value to the start of the list
@@ -83,5 +88,6 @@ people.prepend("John");
 people.prepend("Stacy");
 people.append("Nick");
 people.append("David");
+people.append("Dude");
 console.log(people);
 console.log(people.size());
