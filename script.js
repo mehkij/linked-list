@@ -52,10 +52,10 @@ class LinkedList {
 
   // Returns the node at the given index
   at(index) {
-    let currentNum = 1;
+    let currentNum = 0;
     let current = this.head;
 
-    while(currentNum <= index) {
+    while(currentNum < index) {
       current = current.nextNode;
       currentNum++
     };
